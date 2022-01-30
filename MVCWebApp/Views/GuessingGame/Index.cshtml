@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "GuessingGame";
+}
+
+<h1>GuessingGame view</h1>
+
+@if (ViewBag.Message != null)
+{
+    @*<p>@ViewBag.Message</p>*@
+<p>@Html.Raw(@ViewBag.Message) </p> //raw-> line breaks works think about separation of concern though?
+}
+
+<form asp-controller="GuessingGame" asp-action="Index" method="post">
+    <label>Guess hidden number:</label>
+    <input type="number" name="hiNumber" title="guessing number">
+
+    <input type="submit" value="Check" />
+</form>

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<MVCWebApp.Models.Home.Project>
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<h1>Projects</h1>
+@foreach (var project in Model)
+{
+<div class="projects">
+    <h3>@project.Title</h3>
+    <a href="@project.Link" target="_blank">GitHub Link to project</a>
+    <p>@project.Description</p>
+    <p>@project.Categories<p>
+    <img src=@project.ImageFilepath alt="test project image">
+</div>
+}

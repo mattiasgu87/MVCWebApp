@@ -1,0 +1,52 @@
+﻿@model MVCWebApp.Models.Doctor.TemperatureModel
+
+@{
+    ViewData["Title"] = "Doctor";
+}
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+
+<h1>Doctor view</h1>
+
+@using (Html.BeginForm("Index", "Doctor", FormMethod.Post))
+{
+    <tr>
+        <td>Temperature: </td>
+        <td>
+            @Html.TextBoxFor(m => m.Temperature, new { title = "Temperature text box" })
+        </td>
+    </tr>
+    <tr>
+        <br>
+        <td>Temperature unit: </td>
+        <td>
+            <br>
+            @{
+                var c = "";
+                @if (ViewBag.ISChecked == "Celsius")
+                {
+                    c = "checked";
+                }
+                <input type="radio" id="scale" name="tempType" title="Celsius radiobutton" value="Celsius" @c.ToString() />
+            }
+            <label for="age1">Celsius </label><br>
+
+            @{
+                var f = "";
+                @if (ViewBag.ISChecked == "Fahrenheit")
+                {
+                    f = "checked";
+                }
+                <input type="radio" id="scale1" name="tempType" title="Fahrenheit radiobutton" value="Fahrenheit" @f.ToString() />
+            }
+            <label for="age2">Fahrenheit</label><br>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Submit" /></td>
+    </tr>
+}

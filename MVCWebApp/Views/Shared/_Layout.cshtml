@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width" />
+
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/StyleSheet.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <img src="@Url.Content("~/Content/logo.png")" alt="website logo" />
+        <ul class="navigation">
+            <li class="linavigation">
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li class="linavigation">
+                @Html.ActionLink("About", "About", "Home")
+            </li>
+            <li class="linavigation">
+                @Html.ActionLink("Contact", "Contact", "Home")
+            </li>
+            <li class="linavigation">
+            @Html.ActionLink("Projects", "Projects", "Home")
+            </li>     
+        </ul>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <footer><p>@DateTime.Now.ToString("dddd, dd MMMM yyyy") - &copy;Mattias Gustafsson</p></footer>
+</body>
+</html>
