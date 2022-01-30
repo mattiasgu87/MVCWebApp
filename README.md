@@ -2,5 +2,4 @@
 MVC Web App Assignment [Lexicon.Net]
 
 Contains custom routes:
-/Doctor
-/GuessingGame
+/Doctor & /GuessingGame
