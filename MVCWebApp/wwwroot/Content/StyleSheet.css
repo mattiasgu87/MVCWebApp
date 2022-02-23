@@ -45,23 +45,6 @@ li.linavigation {
     }
 
 /* Change the link color to #111 (black) on hover */
-li.linavigation a:hover {
-    background-color: #111;
-}
-
-/* table temp css */
-table.person {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td.person, th.person {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr.person:nth-child(even) {
-    background-color: #dddddd;
-}
+        li.linavigation a:hover {
+            background-color: #111;
+        }

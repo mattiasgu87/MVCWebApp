@@ -25,7 +25,7 @@ namespace MVCWebApp.Controllers
                 cookieOption.Expires = DateTime.Now.AddDays(1);
 
                 HttpContext.Response.Cookies.Append("first_request", DateTime.Now.ToString(), cookieOption);
-                HttpContext.Response.Cookies.Append("timesVisited", "1", cookieOption);
+                HttpContext.Response.Cookies.Append("timesVisited", "1");
                 ViewBag.Message = ("Welcome, new visitor!");
 
             }

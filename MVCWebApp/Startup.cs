@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVCWebApp.Models.Home;
-using MVCWebApp.Models.Person;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +19,6 @@ namespace MVCWebApp
         {
             services.AddMvc();
             services.AddScoped<IProjectRepository, MockProjectRepository>(); //add repository
-            services.AddSingleton<IPersonRepository, MockPersonRepository>(); //add repository
             services.AddHttpContextAccessor();
             services.AddSession();
         }
@@ -57,12 +55,6 @@ namespace MVCWebApp
                     name: "GuessingGame",
                     pattern: "GuessingGame",
                     defaults: new { controller = "GuessingGame", action = "SetSession" });
-
-                //Person route
-                endpoints.MapControllerRoute(
-                    name: "Personlist",
-                    pattern: "Personlist",
-                    defaults: new { controller = "Person", action = "Index" });
             });
 
         }
