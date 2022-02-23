@@ -1,0 +1,89 @@
+﻿@model CombinedPersonViewModel
+
+@{
+    ViewData["Title"] = "Person List";
+}
+<h1>PersonIndex</h1>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Index" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CreateViewModel.Name" class="control-label"></label>
+                    <input asp-for="CreateViewModel.Name" class="form-control" />
+                    <span asp-validation-for="CreateViewModel.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CreateViewModel.City" class="control-label"></label>
+                    <input asp-for="CreateViewModel.City" class="form-control" />
+                    <span asp-validation-for="CreateViewModel.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CreateViewModel.PhoneNumber" class="control-label"></label>
+                    <input asp-for="CreateViewModel.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="CreateViewModel.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Search" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="SearchOptions.SearchTerm" class="control-label"></label>
+                    <input asp-for="SearchOptions.SearchTerm" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="SearchOptions.CaseSensitive" class="control-label"></label>
+                    <input asp-for="SearchOptions.CaseSensitive" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="SortOptions.ReverseAplhabeticalOrder" class="control-label"></label>
+                    <input asp-for="SortOptions.ReverseAplhabeticalOrder" />
+                </div>
+                    @*<div class="form-group">
+                        <label asp-for="SortOptions.CaseSensitive" class="control-label"></label>
+                        <input asp-for="SortOptions.CaseSensitive" />
+                    </div>*@
+                    <div class="form-group">
+                        <input type="submit" value="Sort by City" asp-controller="Person" 
+                                asp-action="SortByCity" class="btn btn-primary" />
+                        <input type="submit" value="Sort by Name" asp-controller="Person" 
+                                asp-action="SortByName" class="btn btn-primary" />
+                    </div>
+            </form>
+        </div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Phone Number</th>
+        </tr>
+        @foreach (Person item in Model.PersonList)
+        {
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.City</td>
+        <td>@item.PhoneNumber</td>
+        <td><a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a></td>
+    </tr>
+        }
+    </table>
